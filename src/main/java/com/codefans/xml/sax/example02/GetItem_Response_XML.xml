@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+<s:Header>
+<h:ServerVersionInfo MajorVersion="14" MinorVersion="1" MajorBuildNumber="218" MinorBuildNumber="14" Version="Exchange2010_SP1" xmlns:h="http://schemas.microsoft.com/exchange/services/2006/types" xmlns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+</s:Header>
+<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<m:GetItemResponse xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types">
+<m:ResponseMessages>
+<m:GetItemResponseMessage ResponseClass="Success">
+<m:ResponseCode>NoError</m:ResponseCode>
+<m:Items>
+<t:Message>
+<t:ItemId Id="AAMkADM0NWE5ZWY1LWFiZGItNGI0NC1iZTczLTFkMTRjMDc1YzczMABGAAAAAAAjtRBoWBh4Q4gLPlpl3wtfBwAwnKXKs/W9Q5iZK0aWmn9nAOoyszuIAAAwnKXKs/W9Q5iZK0aWmn9nAOoys1OIAAA=" ChangeKey="CQAAABYAAAANWHJrQGE2S6rrivrq0/VMAADqvbgr"/>
+<t:ParentFolderId Id="AAMkADM0NWE5ZWY1LWFiZGItNGI0NC1iZTczLTFkMTRjMDc1YzczMAAuAAAAAAAjtRBoWBh4Q4gLPlpl3wtfAQAwnKXKs/W9Q5iZK0aWmn9nAOoyszuIAAA=" ChangeKey="AQAAAA=="/>
+<t:ItemClass>IPM.Note</t:ItemClass>
+<t:Subject>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</t:Subject>
+<t:Sensitivity>Normal</t:Sensitivity>
+<t:Body BodyType="HTML">&lt;html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40"&gt;&#xD;
+&lt;head&gt;&#xD;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;&#xD;
+&lt;meta name="Generator" content="Microsoft Word 12 (filtered medium)"&gt;&#xD;
+&lt;style&gt;&#xD;
+&lt;!--&#xD;
+ /* Font Definitions */&#xD;
+ @font-face&#xD;
+	{font-family:\5B8B\4F53;&#xD;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}&#xD;
+@font-face&#xD;
+	{font-family:\5B8B\4F53;&#xD;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}&#xD;
+@font-face&#xD;
+	{font-family:Calibri;&#xD;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}&#xD;
+@font-face&#xD;
+	{font-family:"\@\5B8B\4F53";&#xD;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}&#xD;
+ /* Style Definitions */&#xD;
+ p.MsoNormal, li.MsoNormal, div.MsoNormal&#xD;
+	{margin:0cm;&#xD;
+	margin-bottom:.0001pt;&#xD;
+	text-align:justify;&#xD;
+	text-justify:inter-ideograph;&#xD;
+	font-size:10.5pt;&#xD;
+	font-family:"Calibri","sans-serif";}&#xD;
+a:link, span.MsoHyperlink&#xD;
+	{mso-style-priority:99;&#xD;
+	color:blue;&#xD;
+	text-decoration:underline;}&#xD;
+a:visited, span.MsoHyperlinkFollowed&#xD;
+	{mso-style-priority:99;&#xD;
+	color:purple;&#xD;
+	text-decoration:underline;}&#xD;
+span.EmailStyle17&#xD;
+	{mso-style-type:personal-compose;&#xD;
+	font-family:"Calibri","sans-serif";&#xD;
+	color:windowtext;}&#xD;
+.MsoChpDefault&#xD;
+	{mso-style-type:export-only;}&#xD;
+ /* Page Definitions */&#xD;
+ @page Section1&#xD;
+	{size:612.0pt 792.0pt;&#xD;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;}&#xD;
+div.Section1&#xD;
+	{page:Section1;}&#xD;
+--&gt;&#xD;
+&lt;/style&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;&#xD;
+ &lt;o:shapedefaults v:ext="edit" spidmax="1026" /&gt;&#xD;
+&lt;/xml&gt;&lt;![endif]--&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;&#xD;
+ &lt;o:shapelayout v:ext="edit"&gt;&#xD;
+  &lt;o:idmap v:ext="edit" data="1" /&gt;&#xD;
+ &lt;/o:shapelayout&gt;&lt;/xml&gt;&lt;![endif]--&gt;&#xD;
+&lt;/head&gt;&#xD;
+&lt;body lang="ZH-CN" link="blue" vlink="purple" style="text-justify-trim:punctuation"&gt;&#xD;
+&lt;div class="Section1"&gt;&#xD;
+&lt;p class="MsoNormal"&gt;&lt;span lang="EN-US"&gt;&lt;o:p&gt;&amp;nbsp;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/body&gt;&#xD;
+&lt;/html&gt;&#xD;
+</t:Body>
+<t:DateTimeReceived>2012-08-02T01:11:41Z</t:DateTimeReceived>
+<t:Size>2697</t:Size>
+<t:Importance>Normal</t:Importance>
+<t:IsSubmitted>false</t:IsSubmitted>
+<t:IsDraft>false</t:IsDraft>
+<t:IsFromMe>false</t:IsFromMe>
+<t:IsResend>false</t:IsResend>
+<t:IsUnmodified>false</t:IsUnmodified>
+<t:DateTimeSent>2012-08-02T00:59:01Z</t:DateTimeSent>
+<t:DateTimeCreated>2012-08-02T00:59:01Z</t:DateTimeCreated>
+<t:ResponseObjects><t:ReplyToItem/><t:ReplyAllToItem/><t:ForwardItem/></t:ResponseObjects>
+<t:ReminderIsSet>false</t:ReminderIsSet>
+<t:ReminderMinutesBeforeStart>0</t:ReminderMinutesBeforeStart>
+<t:DisplayCc/>
+<t:DisplayTo>user2</t:DisplayTo>
+<t:HasAttachments>false</t:HasAttachments>
+<t:Culture>zh-CN</t:Culture>
+<t:EffectiveRights>
+<t:CreateAssociated>false</t:CreateAssociated>
+<t:CreateContents>false</t:CreateContents>
+<t:CreateHierarchy>false</t:CreateHierarchy>
+<t:Delete>true</t:Delete>
+<t:Modify>true</t:Modify>
+<t:Read>true</t:Read>
+</t:EffectiveRights>
+<t:LastModifiedName>user1</t:LastModifiedName>
+<t:LastModifiedTime>2012-08-02T00:59:29Z</t:LastModifiedTime>
+<t:IsAssociated>false</t:IsAssociated>
+<t:WebClientReadFormQueryString>?ae=Item&amp;a=Open&amp;t=IPM.Note&amp;id=RgAAAAAjtRBoWBh4Q4gLPlpl3wtfBwAwnKXKs%2fW9Q5iZK0aWmn9nAOoyszuIAAAwnKXKs%2fW9Q5iZK0aWmn9nAOoys1OIAAAJ&amp;exvsurl=1</t:WebClientReadFormQueryString><t:ConversationId Id="AAQkADM0NWE5ZWY1LWFiZGItNGI0NC1iZTczLTFkMTRjMDc1YzczMAAQAFg/b3t4/0jWttzdf4OeJt4="/>
+<t:Sender>
+<t:Mailbox>
+	<t:Name>user1</t:Name>
+	<t:EmailAddress>user1@new2010.local</t:EmailAddress>
+	<t:RoutingType>SMTP</t:RoutingType>
+	<t:MailboxType>Mailbox</t:MailboxType>
+</t:Mailbox>
+</t:Sender>
+<t:ToRecipients>
+	<t:Mailbox>
+		<t:Name>user2</t:Name>
+		<t:EmailAddress>user2@new2010.local</t:EmailAddress>
+		<t:RoutingType>SMTP</t:RoutingType>
+		<t:MailboxType>Mailbox</t:MailboxType>
+	</t:Mailbox>
+</t:ToRecipients>
+<t:IsReadReceiptRequested>false</t:IsReadReceiptRequested>
+<t:IsDeliveryReceiptRequested>false</t:IsDeliveryReceiptRequested>
+<t:ConversationIndex>Ac1wS8Z3WD9ve3j/SNa23N1/g54m3g==</t:ConversationIndex>
+<t:ConversationTopic>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</t:ConversationTopic>
+<t:From>
+	<t:Mailbox>
+		<t:Name>user1</t:Name>
+		<t:EmailAddress>user1@new2010.local</t:EmailAddress>
+		<t:RoutingType>SMTP</t:RoutingType>
+		<t:MailboxType>Mailbox</t:MailboxType>
+	</t:Mailbox>
+</t:From>
+<t:InternetMessageId>&lt;0D58726B4061364BAAEB8AFAEAD3F54CEABDB821@WIN-TSJZUR65S8T.new2010.local&gt;</t:InternetMessageId>
+<t:IsRead>true</t:IsRead>
+</t:Message>
+</m:Items>
+</m:GetItemResponseMessage>
+</m:ResponseMessages>
+</m:GetItemResponse>
+</s:Body></s:Envelope>

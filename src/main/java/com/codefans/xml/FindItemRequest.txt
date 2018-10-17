@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Header>
+    <ExchangeImpersonation xmlns="http://schemas.microsoft.com/exchange/services/2006/types">
+      <ConnectingSID>
+        <PrimarySmtpAddress>taojournal2013@exchange2013.com</PrimarySmtpAddress>
+      </ConnectingSID>
+    </ExchangeImpersonation>
+    <RequestServerVersion xmlns="http://schemas.microsoft.com/exchange/services/2006/types" Version="Exchange2010"></RequestServerVersion>
+  </soap:Header>
+  <soap:Body>
+    <FindItem xmlns="http://schemas.microsoft.com/exchange/services/2006/messages" Traversal="Shallow">
+      <ItemShape>
+        <BaseShape xmlns="http://schemas.microsoft.com/exchange/services/2006/types">IdOnly</BaseShape>
+      </ItemShape>
+      <IndexedPageItemView BasePoint="Beginning" Offset="0" MaxEntriesReturned="100000"/>
+      <Restriction>
+        <And xmlns="http://schemas.microsoft.com/exchange/services/2006/types">
+          <IsGreaterThanOrEqualTo>
+            <FieldURI FieldURI="item:DateTimeReceived"/>
+            <FieldURIOrConstant>
+              <Constant Value="1995-01-01T00:00:00Z"/>
+            </FieldURIOrConstant>
+          </IsGreaterThanOrEqualTo>
+          <IsLessThanOrEqualTo>
+            <FieldURI FieldURI="item:DateTimeReceived"/>
+            <FieldURIOrConstant>
+              <Constant Value="2013-05-21T22:00:00Z"/>
+            </FieldURIOrConstant>
+          </IsLessThanOrEqualTo>
+          <IsNotEqualTo>
+            <FieldURI FieldURI="item:ItemClass"/>
+            <FieldURIOrConstant>
+              <Constant Value="IPM.Note.messagesolution.archivedstubbed"/>
+            </FieldURIOrConstant>
+          </IsNotEqualTo>
+          <IsNotEqualTo>
+            <FieldURI FieldURI="item:ItemClass"/>
+            <FieldURIOrConstant>
+              <Constant Value="IPM.Note.messagesolution.archivedstubbed.attachmentOnly"/>
+            </FieldURIOrConstant>
+          </IsNotEqualTo>
+        </And>
+      </Restriction>
+      <SortOrder>
+        <FieldOrder xmlns="http://schemas.microsoft.com/exchange/services/2006/types" Order="Ascending">
+          <FieldURI FieldURI="item:DateTimeReceived"/>
+        </FieldOrder>
+      </SortOrder>
+      <ParentFolderIds>
+        <FolderId xmlns="http://schemas.microsoft.com/exchange/services/2006/types" Id="AAMkADNjMzg5NWFjLTllZTAtNDI3Ny05YTk0LWE3Nzk3OWNlZWI2NAAuAAAAAABRaqsq5CMKRrGZD2FRZKNTAQC1190uw9N0R7smC/e0yGnwAAAAAAAOAAA=" ChangeKey="AQAAABYAAAC1190uw9N0R7smC/e0yGnwAAA5ru62"></FolderId>
+      </ParentFolderIds>
+    </FindItem>
+  </soap:Body>
+</soap:Envelope>

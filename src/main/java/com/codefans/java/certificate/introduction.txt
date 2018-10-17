@@ -1,0 +1,20 @@
+
+1. Java不同类型密钥库之PKCS12和JCEKS
+http://www.csdn.net/article/2015-01-06/2823434
+
+2. Different types of keystore in Java -- JKS
+http://www.pixelstech.net/article/1409966488-Different-types-of-keystore-in-Java----JKS
+
+
+
+
+
+
+
+
+
+
+
+
+
+

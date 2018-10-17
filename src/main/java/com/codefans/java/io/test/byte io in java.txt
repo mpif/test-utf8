@@ -1,0 +1,107 @@
+
+整数252117761对应的二进制数为：
+00001111  00000111  00000011  00000001
+
+2^27=134217728
+2^26=67108864
+2^25=33554432
+2^24=16777216
+
+2^18=262144
+2^17=131072
+2^16=65536
+
+2^9=512
+2^8=256
+
+2^0=1
+
+134217728+67108864+33554432+16777216 + 262144+131072+65536 + 512+256+1=252117761
+
+public void writeInt( OutputStream out , int v ) throws IOException {
+		out.write( (v >>> 24) & 0xFF );
+		out.write( (v >>> 16) & 0xFF );
+		out.write( (v >>> 8) & 0xFF );
+		out.write( (v >>> 0) & 0xFF );
+		
+}
+
+public int readInt( InputStream in ) throws IOException
+{
+		int ch1 = in.read();
+		int ch2 = in.read();
+		int ch3 = in.read();
+		int ch4 = in.read();
+		return ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
+}
+
+0xFF对应的二进制数为11111111
+
+
+此时，如果v=252117761的话，
+v对应的二进制数为：00001111  00000111  00000011  00000001，那么：
+a = v >>> 24     00000000  00000000  00000000  00001111
+b = v >>> 16     00000000  00000000  00001111  00000111
+c = v >>> 8      00000000  00001111  00000111  00000011
+d = v >>> 0      00001111  00000111  00000011  00000001
+如果使用OutputStream.write(int b)方法来写到数据文件,由于这个方法只会保留整数的低8位，那么写完之后：
+a = 00000000  00000000  00000000  00001111
+b = 00000000  00000000  00000000  00000111
+c = 00000000  00000000  00000000  00000011
+d = 00000000  00000000  00000000  00000001
+
+
+读取这个整数时：
+v = ((a << 24) + (b << 16) + (c << 8) + (d << 0))
+A = a << 24  00001111  00000000  00000000  00000000
+B = b << 16  00000000  00000111  00000000  00000000
+C = c << 8   00000000  00000000  00000011  00000000
+D = d << 0   00000000  00000000  00000000  00000001
+所以：
+v = A + B + C + D
+=134217728+67108864+33554432+16777216 + B + C + D
+=134217728+67108864+33554432+16777216  +  262144+131072+65536  + C + D
+=134217728+67108864+33554432+16777216  +  262144+131072+65536  + 512+256 + D
+=134217728+67108864+33554432+16777216  +  262144+131072+65536  + 512+256 + 1
+=252117761
+
+
+注释：
+以下是jdk中关于OutputStream.write(int b)方法的注释。
+public abstract class OutputStream implements Closeable, Flushable {
+    /**
+     * Writes the specified byte to this output stream. The general 
+     * contract for <code>write</code> is that one byte is written 
+     * to the output stream. The byte to be written is the eight 
+     * low-order bits of the argument <code>b</code>. The 24 
+     * high-order bits of <code>b</code> are ignored.
+     * <p>
+     * Subclasses of <code>OutputStream</code> must provide an 
+     * implementation for this method. 
+     *
+     * @param      b   the <code>byte</code>.
+     * @exception  IOException  if an I/O error occurs. In particular, 
+     *             an <code>IOException</code> may be thrown if the 
+     *             output stream has been closed.
+     */
+    public abstract void write(int b) throws IOException;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

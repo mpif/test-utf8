@@ -1,0 +1,50 @@
+GET http://c.gj.qq.com/fcgi-bin/mailreport?gjguid=&monitorid=624644&bid=4&query=&refer=https%3A%2F%2Fwww.baidu.com%2F HTTP/1.1
+Host: c.gj.qq.com
+Proxy-Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36
+Accept: image/webp,image/*,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+Cookie: tvfe_boss_uuid=fa7127d7e8bca39e; ptui_loginuin=363874279@qq.com; _ga=GA1.2.88557056.1468634583; pgv_info=ssid=s1638863048; pgv_pvid=2121629450; o_cookie=363874279; ptcz=98e2c196e2b22392ff3c946f4d26b87003455cd3892116239b0ce95386383912; pt2gguin=o0363874279; uin=o0363874279; skey=@VF5EQshwY; ptisp=ctc
+
+CONNECT www.baidu.com:443 HTTP/1.1
+Host: www.baidu.com:443
+Proxy-Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36
+
+GET http://cache3.onlyimg.com/pics/2016072314/274500.jpg HTTP/1.1
+Host: cache3.onlyimg.com
+Proxy-Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+If-None-Match: "b958b6b64fe4d11:0"
+If-Modified-Since: Fri, 22 Jul 2016 19:31:58 GMT
+
+GET http://cache3.onlyimg.com/pics/2016072314/274500.jpg HTTP/1.1
+Host: cache3.onlyimg.com
+Proxy-Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36
+Accept: */*
+Referer: http://2016kx.com/tupianqu/zipai/162124.html
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

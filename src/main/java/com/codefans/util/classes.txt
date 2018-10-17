@@ -1,0 +1,14 @@
+src/main/java/com/messagesolution/search/distribution/bootup/clusterbooter.properties
+src/main/java/com/messagesolution/search/distribution/bootup/log4j.properties
+src/main/java/com/messagesolution/search/distribution/client/talk/service/impl/Appender.java
+src/main/java/com/messagesolution/search/distribution/client/talk/service/impl/AppendFullTriggerImpl.java
+src/main/java/com/messagesolution/search/distribution/client/talk/service/impl/StreamedFileHelper.java
+src/main/java/com/messagesolution/search/distribution/client/talk/service/impl/TempFileReader.java
+src/main/java/com/messagesolution/search/email/bootstrap/impl/indexdaemon.properties
+src/main/java/com/messagesolution/search/email/bootstrap/impl/UniversalidmapMonitorBootStrap.java
+src/main/java/com/messagesolution/search/email/index/ScannerUniversalidMapTask.java
+src/main/java/com/messagesolution/search/email/index/UniversalidmapDatasourceImpl.java
+src/main/java/com/messagesolution/store/distribution/metadata/repository/impl/hibernate/UniversalIdMapBigTable.java
+src/main/java/com/messagesolution/store/distribution/metadata/repository/impl/hibernate/UniversalIdMapDaoHibernateImpl.java
+src/main/java/com/messagesolution/store/email/local/EmailMessageLocalDisassemblerImpl.java
+src/main/java/com/messagesolution/store/StoreEmail.java

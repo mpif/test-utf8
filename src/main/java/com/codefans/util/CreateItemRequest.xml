@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Header>
+    <ExchangeImpersonation xmlns="http://schemas.microsoft.com/exchange/services/2006/types">
+      <ConnectingSID>
+        <PrimarySmtpAddress>f@new2010.local</PrimarySmtpAddress>
+      </ConnectingSID>
+    </ExchangeImpersonation>
+    <RequestServerVersion xmlns="http://schemas.microsoft.com/exchange/services/2006/types" Version="Exchange2010"></RequestServerVersion>
+  </soap:Header>
+  <soap:Body>
+    <ns2:CreateItem xmlns:ns2="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns="http://schemas.microsoft.com/exchange/services/2006/types" MessageDisposition="SaveOnly">
+      <ns2:SavedItemFolderId>
+        <DistinguishedFolderId Id="inbox"/>
+      </ns2:SavedItemFolderId>
+      <ns2:Items>
+        <Message>
+          <ItemClass>IPM.Note</ItemClass>
+          <Subject>first createItem request</Subject>
+          <Body BodyType="Text">first createItem request test</Body>
+          <ExtendedProperty>
+            <ExtendedFieldURI PropertyType="String" PropertyName="urn:schemas:mailheader:x-msmailarchive" PropertySetId="00020329-0000-0000-C000-000000000046"/>
+            <Value>messagesolution-archived</Value>
+          </ExtendedProperty>
+          <ExtendedProperty>
+            <ExtendedFieldURI PropertyType="String" PropertyName="http://schemas.microsoft.com/mapi/proptag/mslnmessageid" PropertySetId="00020329-0000-0000-C000-000000000046"/>
+            <Value>1234567890</Value>
+          </ExtendedProperty>
+          <ExtendedProperty>
+            <ExtendedFieldURI PropertyType="SystemTime" PropertyTag="0x0039"/>
+            <Value>2013-04-28T11:21:29.000+08:00</Value>
+          </ExtendedProperty>
+          <ExtendedProperty>
+            <ExtendedFieldURI PropertyType="SystemTime" PropertyTag="0x0E06"/>
+            <Value>2013-04-28T11:21:29.000+08:00</Value>
+          </ExtendedProperty>
+          <Sender>
+            <Mailbox>
+              <Name>f@new2010.local</Name>
+              <EmailAddress>f@new2010.local</EmailAddress>
+              <RoutingType>SMTP</RoutingType>
+              <MailboxType>Mailbox</MailboxType>
+            </Mailbox>
+          </Sender>
+          <ToRecipients>
+            <Mailbox>
+              <EmailAddress>user1@new2010.local</EmailAddress>
+            </Mailbox>
+          </ToRecipients>
+          <From>
+            <Mailbox>
+              <Name>f@new2010.local</Name>
+              <EmailAddress>f@new2010.local</EmailAddress>
+              <RoutingType>SMTP</RoutingType>
+              <MailboxType>Mailbox</MailboxType>
+            </Mailbox>
+          </From>
+        </Message>
+      </ns2:Items>
+    </ns2:CreateItem>
+  </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+<emails>
+	<email enable="1">a@new2010.local</email>
+	<email enable="1">b@new2010.local</email>
+	<email enable="1">d@new2010.local</email>
+	<email enable="1">e@new2010.local</email>
+	<email enable="1">f@new2010.local</email>
+	<email enable="1">ff@new2010.local</email>
+</emails>
+<props>
+	<prop id="mailNums">720</prop>
+	<prop id="smtpAddress">10.0.0.209</prop>
+	<prop id="adUser">1</prop>
+	<prop id="adPass">1</prop>
+	<prop id="sender">mysender@mysender.com</prop>
+	<prop id="subject">同时归档削减测试邮件: Mails come from JavaMailTool</prop>
+	<prop id="content">this is mail body. 这是邮件的正文. </prop>
+	<prop id="attachment">C:\\2M附件.rar</prop>
+</props>
+</Configuration>

@@ -1,0 +1,57 @@
+检测死锁有两种方法：
+　　1>使用JDK给我们的的工具JConsole，可以通过打开cmd然后输入jconsole打开。
+　　2>直接使用JVM自带的命令
+　　　　1）首先通过 jps 命令查看需要查看的Java进程的vmid，如图，我们要查看的进程TestDeadLock的vmid号是7412；
+　　　　2）然后利用 jstack 查看该进程中的堆栈情况，在cmd中输入 jstack -l 7412 ，移动到输出的信息的最下面即可得到：
+
+避免死锁的一个通用的经验法则是:当几个线程都要访问共享资源A、B、C时，保证使每个线程都按照同样的顺序去访问它们，比如都先访问A，在访问B和C。 
+   此外，Thread类的suspend()方法也很容易导致死锁,因此这个方法已经被废弃了.
+
+
+参考资料：
+java 查看线程死锁 
+http://www.cnblogs.com/ilahsa/archive/2013/06/03/3115410.html
+
+java 死锁及解决 
+http://blog.csdn.net/abc006250/article/details/8007233
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

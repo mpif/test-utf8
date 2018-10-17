@@ -1,0 +1,347 @@
+View Latest Questions and Answers|Ask Questions? 
+
+
+ HomeJavaFrameworksDatabaseTechnologyWeb DevelopmentBuild/Test ToolsServersPHP 
+Home Java Beginners Uncompressing the file in the GZIP format.
+Google Advance Search   RoseIndia.Net Search
+
+Uncompressing the file in the GZIP format.
+Posted on: March 11, 2008 at 12:00 AM 
+
+ This example will help you to understand the concepts of GZIP. Sometimes it happens that when you download a file or any PDF file you get it in compressed mode. This means that the file is compressed, but can't read it in compressed form so, it needs to
+Uncompressing the file in the GZIP format.
+
+       
+
+This example will help you to understand the concepts of GZIP.  Sometimes it happens that when you download a file or any PDF  file you get it in compressed mode. This means that the file is compressed, but can't read it in compressed form so, it needs to be uncompressed. There are various uncompress ion utility program which can be found very easily found on internet. If you are uncompressing a PDF with the extension .gz, then its resultant file will have a .PDF extension. Its main advantage is that it will uncompress the PDF file so that you can be able to read it. This utility is a part of java.util.zip package which provides classes and methods to compress and decompress the file. 
+
+To make a program on uncompressing a file, firstly you need to import java.util.zip package so, that all classes and method of this package can be used, also import java.io package for the input/output operation. Then create a class named JavaUncompress. Declare a main method inside the class which will take one String argument i.e. file name. If the user forgets to type the name of the input file which has to be uncompressed, then ask the user to enter the file name. After getting the file  name, we need to uncompress that particular file. For that we need to open the gzip file. Print a message so that you can understand where gzip file is opening. To open the input file firstly create a object of FileInputStream class which and pass the instance of FileInputStream class into the constructor of GZIPInputStream class, which will be created by using new operator. After opening the input file now we need to open the output file so that the data can be transferred from the input file to the output file. Print the message so that you can understand where the output is being written. For that use make a object of FileOutputStream class and pass the name of the resultant file in its constructor. For transferring the bytes from the compressed file to the output file declare a array of type byte with the size of 1024 bytes. It can be changed according to the needs of a programmer, now declare one variable of type int which will read the byte from the object of GZIPInputStream class. At last close the file and stream. 
+
+GZIPInputStream: This class is a part of java.util.zip package. It extends DeflaterInputStream class. This class reads compressed data in the GZIP format.
+
+FileInputStream: This class extends InputStream. It reads bytes from a file .
+
+FileOutputStream: This class extends OutputStream class. It is a output stream for writing data to a file.
+
+read(): It returns int. It reads the buffer.
+
+write(byte[] buf,  int off, int len i): It is a method of OutputStream, which takes three arguments. It is used for writing a array of bytes to the uncompressing  file.
+
+close(): It closes all the resources occupied by the GZIPInputStream
+
+close(): It closes all the resources occupied by the OutputStream.
+
+The code of the program is given below:
+
+import java.util.zip.GZIPInputStream;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class JavaUncompress{
+  public static void main(String args[]){
+  try{
+  //To Uncompress GZip File Contents we need to open the gzip file.....
+  if(args.length<=0){
+  System.out.println("Please enter the valid file name");
+  }
+  else{
+  String inFilename = args[0];
+  System.out.println("Opening the gzip file........
+
+.................. :  opened");
+
+
+  GZIPInputStream gzipInputStream = null;
+  FileInputStream fileInputStream = null;
+  gzipInputStream = new GZIPInputStream(new 
+
+FileInputStream(inFilename));
+  System.out.println("Opening the output file..
+
+........... : opened");
+  String outFilename = inFilename +".pdf";
+  OutputStream out = new FileOutputStream(outFilename);
+  System.out.println("Transferring bytes from the 
+
+compressed file to the output file........:
+     Transfer successful");
+  byte[] buf = new byte[1024];  //size can be 
+
+changed according to programmer's need.
+  int len;
+  while ((len = gzipInputStream.read(buf)) > 0) {
+  out.write(buf, 0, len);
+  }
+  System.out.println("The file and stream is ..
+
+....closing.......... : closed"); 
+  gzipInputStream.close();
+  out.close();
+  }
+  }
+  catch(IOException e){
+  System.out.println("Exception has been thrown" + e);
+  }
+  }
+}
+
+The output of the program is given below.
+
+In the output we can see that firstly we have given the name of the compressed file. The file name should ends with .gz extension, while opening the compressed gzip file we are printing that the file is opening. After opening the file we are opening a file to which we have to write the data from the compressed file and that also is printed in the output. For transferring the bytes from the compressed file to the output file we are printing the message. Before closing the file and stream we are again printing the message. 
+
+C:\java>java JavaUncompress C:\javaExample\unCompress\jsp.pdf.gz
+Opening the gzip file.......................... : opened
+Opening the output file............. : opened
+Transferring bytes from the compressed file to the output file........  : Transfer successful
+The file and stream is ......closing.......... : closed
+
+C:\java>
+Download this example.
+
+
+ 
+Related Tags for Uncompressing the file in the GZIP format.:
+java,  c,  com,  pdf,  file,  ide,  class,  orm,  ant,  form,  time,  io,  methods,  classes,  download,  zip,  help,  load,  method,  sed,  gzip,  get,  extension,  internet,  ip,  vi,  concepts,  tag,  read,  int,  this,  id,  ai,  package,  app,  if,  for,  example,  unc,  with,  utility,  program,  to,  ram,  exam,  sse,  mode,  ssi,  ext,  e,  il,  main,  it,  des,  compress,  can,  li,  var,  ul,  result,  pe,  im,  art,  ce,  in,  mod,  rm,  part,  decompress,  as,  sta,  m,  nt,  par,  net,  ca,  net,  j,  pack,  ad,  advantage,  cl,  es,  age,  pen,  me,  mean,  intern,  pro,  pp,  ack,  do,  down,  xa,  when,  which,  xamp,  s,  su,  so,  ee,  ess,  at,  any,  pac,  k,  is,  ha,  ime,  ll,  mpl,  press,  pre,  ea,  and,  ar,  rt,  xt,  util,  va,  uti,  various,  uncompress,  z,  s,  s,  ri,  th,  concept,  av,  st,  .zip,  ab,  abl,  ap,  hat,  df,  gz,  ple,  pl,  pts,  pr,  pressed,  nd,  ods,  ode,  on,  om,  ogr,  o,  nl
+
+«Previous Index Next»
+Ask Questions?    Discuss: Uncompressing the file in the GZIP format.   View All Comments 
+
+Post your Comment
+
+
+Your Name (*) :
+Your Email :
+Subject (*):
+Your Comment (*):
+    
+ 
+ 
+
+Ask Questions?
+
+If you are facing any programming issue, such as compilation errors or not able to find the code you are looking for.
+
+Ask your questions, our development team will try to give answers to your questions.
+
+ Tutorial TopicsHibernate Framework( 1057 )Struts Framework( 836 )Spring Framework( 567 )XML( 196 )Ajax( 528 )JavaScript( 109 )Java( 1806 )Web Services( 71 )Database( 145 )Technology( 90 )Web Development( 503 )PHP( 406 ) 
+
+
+Services Software Solutions
+JSF Development Outsourcing ERP M-Commerce Flex Development Website Development
+Web Designing Web Redesigning Web Development Logo Design Web Design Packages Domain Registration Web Promotion Services
+SEO Services Search Eng. Optimization Search Eng. Submission SEO Tips SEO Portfolio Web Promotion Plans Content Development
+Content Development Article Writing Blog Writing News Writing SEO Copywriting Technical Documentation Article Marketing Web Hosting Services
+ASP.NET Hosting Unix Hosting E-Commerce Hosting Windows Hosting Hosting Plan E-Commerce Solutions
+CRM
+Home Privacy Policy
+© All Rights are Reserved for Rose India
+
+
+您还未登录 ! 登录 注册
+
+
+问答首页 → 入门技术
+入门技术
+java gzip解压，文件还原不了
+
+悬赏：5 发布时间：2010-12-09 提问人：jjjssh (高级程序员)
+< > 猎头职位: 北京: ITeye网站诚聘网站编辑
+Java代码  
+import java.io.BufferedOutputStream;  
+import java.io.BufferedReader;  
+import java.io.FileInputStream;  
+import java.io.FileOutputStream;  
+import java.io.FileReader;  
+import java.io.InputStreamReader;  
+import java.util.zip.GZIPInputStream;  
+import java.util.zip.GZIPOutputStream;  
+  
+  
+public class Test3 {  
+  
+    /** 
+     * @param args 
+     */  
+    public static void main(String[] args) {  
+        try{  
+            BufferedReader in = new BufferedReader(new FileReader("d:/t1.doc"));  
+            BufferedOutputStream out = new BufferedOutputStream(new GZIPOutputStream(new FileOutputStream("d:/test.gz")));  
+            System.out.println("Writing file");  
+            int c;  
+            while((c=in.read())!=-1)  
+                out.write(c);  
+            in.close();  
+            out.close();  
+              
+            System.out.println("Reading file");  
+  
+              
+            BufferedReader in2 = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream("d:/test.gz"))));  
+            BufferedOutputStream out2 = new BufferedOutputStream(new FileOutputStream("d:/t2.doc"));  
+            int m;  
+  
+            while((m=in2.read())!=-1){  
+                out2.write(m);  
+                System.out.println(m);  
+            }  
+            in2.close();  
+            out2.close();  
+              
+        }catch(Exception e){  
+            e.printStackTrace();  
+        }  
+    }  
+  
+}  
+
+
+这是小生我写的一个例子，压缩解压.txt文件，一切正常，但压缩解压其他类型文件（比如doc，jpg）就出现还原不回原来的文件了，对比一下大小，好像解压后的文件的比原来的文件小了。请问各位大哥大姐是不是我写的代码有误，还是gzip本身有这样的问题。
+
+------------------------------------------------------------------------------------------------------------------
+问题补充：
+xxq 写道
+没用定义buf大小，默认2048，当读到这个2048大小才到write方法，最后一次没这么大了，没有out.flush()操作，就写不出去 
+
+flush()将缓冲区中的数据全部写出目的流中
+
+
+
+in2.close();  
+out2.close(); 
+我在这之间加了out2.flush(); 
+in2.close();  
+out2.flush(); 
+out2.close(); 
+也没效果，还是还原不了原来的t1.doc文件，打开依然是乱码。
+
+------------------------------------------------------------------------------------------------------------------
+问题补充：
+xxq 写道
+没看清楚，你压根就不是解压，你是直接将文件转为DOC了，不乱码才怪 
+
+FileInputStream fileInputStream = new FileInputStream(zipFile); 
+            zis = new ZipInputStream(fileInputStream); 
+            ZipEntry ze; 
+            while ((ze = zis.getNextEntry()) != null) { 
+                try { 
+                    //检查文件夹是否存在,否则创建 
+                    File dir = new File(outFilePath); 
+                    if (!dir.isDirectory() && !dir.exists()) { 
+                        dir.mkdirs(); 
+                    } 
+                    //读写文件 
+                    byte data[] = new byte[1024]; 
+                    int count; 
+                    FileOutputStream fos = new FileOutputStream(outFilePath + ze.getName()); 
+                    dest = new BufferedOutputStream(fos, 1024); 
+                    while ((count = zis.read(data, 0, 1024)) != -1) { 
+                        dest.write(data, 0, count); 
+                    } 
+                    dest.flush(); 
+                } catch (IOException e) { 
+                    throw new BusinessException("文件流操件失败", e); 
+                } finally { 
+                    if (dest != null) dest.close(); 
+                } 
+            }
+
+你这个好像是zip的吧，但我用的是gzip，zip的我懂，虽说她们都是压缩解压，但还是有点区别的。看thinking in java上面的好像也是这么写的，但就是不行
+该问题已经关闭: 无人问津啊
+
+问题答案可能在这里 → 寻找更多解答
+
+JAVA解压和压缩详解
+Java解压zip和rar文件
+java文件操作大全
+JAVA 解压压缩包中指定文件
+写入文件为什么是乱码？
+回答
+
+没用定义buf大小，默认2048，当读到这个2048大小才到write方法，最后一次没这么大了，没有out.flush()操作，就写不出去 
+
+flush()将缓冲区中的数据全部写出目的流中
+xxq (资深程序员) 2010-12-09
+没看清楚，你压根就不是解压，你是直接将文件转为DOC了，不乱码才怪 
+
+FileInputStream fileInputStream = new FileInputStream(zipFile); 
+            zis = new ZipInputStream(fileInputStream); 
+            ZipEntry ze; 
+            while ((ze = zis.getNextEntry()) != null) { 
+                try { 
+                    //检查文件夹是否存在,否则创建 
+                    File dir = new File(outFilePath); 
+                    if (!dir.isDirectory() && !dir.exists()) { 
+                        dir.mkdirs(); 
+                    } 
+                    //读写文件 
+                    byte data[] = new byte[1024]; 
+                    int count; 
+                    FileOutputStream fos = new FileOutputStream(outFilePath + ze.getName()); 
+                    dest = new BufferedOutputStream(fos, 1024); 
+                    while ((count = zis.read(data, 0, 1024)) != -1) { 
+                        dest.write(data, 0, count); 
+                    } 
+                    dest.flush(); 
+                } catch (IOException e) { 
+                    throw new BusinessException("文件流操件失败", e); 
+                } finally { 
+                    if (dest != null) dest.close(); 
+                } 
+            }
+xxq (资深程序员) 2010-12-10
+待解决问题数: 193 
+已解决问题数: 20859 
+已关闭问题数: 52468 
+  
+ 
+问答分类
+
+移动开发技术
+Android iOS wp7
+Web前端技术
+JavaScript HTML5 jQuery CSS
+Java企业应用
+Hibernate Spring Struts iBATIS 企业应用 Lucene SOA
+编程语言技术
+Ruby Python PHP Flash C++ .net
+综合技术
+Linux 数据库 敏捷编程 数据结构 软件测试 项目管理
+入门技术
+招聘求职
+海阔天空
+答题高手
+
+lovewhzlq CTO ( 1252 - 13930 )
+yourgame CTO ( 570 - 5183 )
+蔡华江 资深架构师 ( 323 - 3392 )
+xiaolongfeixiang 资深架构师 ( 301 - 3000 )
+atian25 架构师 ( 253 - 2329 )
+AngelAndAngel 资深架构师 ( 243 - 2630 )
+myali88 资深架构师 ( 239 - 2702 )
+suziwen 资深架构师 ( 208 - 2452 )
+Anddy 架构师 ( 193 - 2157 )
+lizhi92574 架构师 ( 192 - 2061 )
+查看全部排名>>
+问题频道帮助
+
+提问的智慧
+如何获得积分及等级说明
+如何关闭问题
+
+首页
+资讯
+精华
+论坛
+问答
+博客
+专栏
+群组
+招聘
+搜索
+广告服务 ITeye黑板报 联系我们 友情链接
+© 2003-2011 ITeye.com. [ 京ICP证110151号 京公网安备110105010620 ]
+百联优力(北京)投资有限公司 版权所有
+上海炯耐计算机软件有限公司 提供商务支持

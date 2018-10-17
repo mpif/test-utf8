@@ -1,0 +1,83 @@
+D:\dev\test-utf8\src\main\java>jar cvf MyAgent.jar com/codefans/java/jvm/javaagent/MySimpleAgent.class com/codefans/java/jvm/javaagent/MySimpleTransformer.class
+已添加清单
+正在添加: com/codefans/java/jvm/javaagent/MySimpleAgent.class(输入 = 540) (输出 = 320)(压缩了 40%)
+正在添加: com/codefans/java/jvm/javaagent/MySimpleTransformer.class(输入 = 1286) (输出 = 755)(压缩了 41%)
+
+D:\dev\test-utf8\src\main\java>java -javaagent:MyAgent.jar JavaAgentMain
+Exception in thread "main" java.lang.ClassNotFoundException: MySimpleAgent
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+        at sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:304)
+        at sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:401)
+FATAL ERROR in native method: processing of -javaagent failed
+
+这个问题的原因是：
+META-INF/MANIFEST.MF文件中的class配置不对，配置成了：
+Premain-Class: MySimpleAgent
+正确应该为：
+Premain-Class: com.codefans.java.jvm.javaagent.MySimpleAgent
+
+D:\dev\test-utf8\src\main\java>set classpath
+CLASSPATH=.;D:\JavaEnvironment\Java\jdk1.8.0_74_x64_idea2016\lib
+
+D:\dev\test-utf8\src\main\java>java -javaagent:MyAgent.jar JavaAgentMain
+错误: 找不到或无法加载主类 JavaAgentMain
+
+原因是：
+JavaAgentMain有包，需要填写完整包路径的class名称
+
+D:\dev\test-utf8\src\main\java>java -javaagent:MyAgent.jar com/codefans/java/jvm/javaagent/JavaAgentMain
+The number six is 6
+
+6没改成7的原因是：
+MySimpleTransformer类中写死了被代理的类名，类名写错了，导致代理无效
+
+
+D:\dev\test-utf8\src\main\java>javac com/codefans/java/jvm/javaagent/*.java
+重新编译后，将MySimpleTransformer.class拷贝到MyAgent.jar中
+
+D:\dev\test-utf8\src\main\java>java -javaagent:MyAgent.jar com/codefans/java/jvm/javaagent/JavaAgentMain
+-54 -2 -70 -66 0 0 0 52 0 29 10 0 6 0 15 9 0 16 0 17 8 0 18 10
+0 19 0 20 7 0 21 7 0 22 1 0 6 60 105 110 105 116 62 1 0 3 40
+41 86 1 0 4 67 111 100 101 1 0 15 76 105 110 101 78 117 109 98
+101 114 84 97 98 108 101 1 0 4 109 97 105 110 1 0 22 40 91 76
+106 97 118 97 47 108 97 110 103 47 83 116 114 105 110 103 59
+41 86 1 0 10 83 111 117 114 99 101 70 105 108 101 1 0 18 74 97
+118 97 65 103 101 110 116 77 97 105 110 46 106 97 118 97 12 0
+7 0 8 7 0 23 12 0 24 0 25 1 0 19 84 104 101 32 110 117 109 98
+101 114 32 115 105 120 32 105 115 32 54 7 0 26 12 0 27 0 28 1
+0 45 99 111 109 47 99 111 100 101 102 97 110 115 47 106 97 118
+97 47 106 118 109 47 106 97 118 97 97 103 101 110 116 47 74 97
+118 97 65 103 101 110 116 77 97 105 110 1 0 16 106 97 118 97
+47 108 97 110 103 47 79 98 106 101 99 116 1 0 16 106 97 118 97
+47 108 97 110 103 47 83 121 115 116 101 109 1 0 3 111 117 116
+1 0 21 76 106 97 118 97 47 105 111 47 80 114 105 110 116 83 116
+114 101 97 109 59 1 0 19 106 97 118 97 47 105 111 47 80 114 105
+110 116 83 116 114 101 97 109 1 0 7 112 114 105 110 116 108 110
+1 0 21 40 76 106 97 118 97 47 108 97 110 103 47 83 116 114 105
+110 103 59 41 86 0 33 0 5 0 6 0 0 0 0 0 2 0 1 0 7 0 8 0 1 0 9
+0 0 0 29 0 1 0 1 0 0 0 5 42 -73 0 1 -79 0 0 0 1 0 10 0 0 0 6
+0 1 0 0 0 6 0 9 0 11 0 12 0 1 0 9 0 0 0 37 0 2 0 1 0 0 0 9 -78
+0 2 18 3 -74 0 4 -79 0 0 0 1 0 10 0 0 0 10 0 2 0 0 0 9 0 8 0
+10 0 1 0 13 0 0 0 2 0 14
+The number of bytes in HelloWorld: 471
+The number six is 7
+
+
+参考资料：
+JavaAgent 应用（spring-loaded 热部署）
+http://blog.csdn.net/catoop/article/details/51034778
+
+
+
+
+
+
+
+
+
+
+
+

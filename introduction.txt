@@ -1,0 +1,270 @@
+﻿
+==================================================================
+1. com.messagesolution.xml.XmlFormater.java
+2. com.messagesolution.util.fileutil.ChangePackageDeclare.java
+3. com.messagesolution.util.fileutil.SvnUtil
+4. com.messagesolution.util.fileutil.LogUtil
+5. com.messagesolution.util.XmlUtil.java
+6. com.messagesolution.util.fileutil.ClassFileTool.java
+7. com.messagesolution.util.fileutil.scannerdisk.DiskFileScanner
+8. com.messagesolution.java.lang.osname.OSinfo.java
+9. com.messagesolution.util.fileutil.PackageMerge.java
+10. com.messagesolution.java.io.test.JavaByteAndFileByteTest.java
+11. com.messagesolution.java.util.HashCodeUtil.java
+12. com.messagesolution.task.HashCodeTool.java
+13. com.messagesolution.java.db.ormapping.ORMapping.java
+14. com.messagesolution.qr
+15. com.messagesolution.task.IPOccupationMonitor.java
+16. com\messagesolution\performance\findstr\introduction.txt
+17.com.codefans.java.io.write.OutputAndBufferdOutput.java
+18.com.codefans.java.io.performance.WriteToFileCache.java
+19.com.messagesolution2.util.RandomAccessFileTest.test03()
+20.com.messagesolution2.task.httpproxy.ProxyApp.java
+21. com.messagesolution2.util.Base64FileDecoderUtil.java
+22. com.codefans.java.io.eea.Persistent.java
+23.com.codefans.util.FileUtil.java
+24.com.codefans.java.regex.RegexForString.java
+25.com.codefans.java.file.GetFileSize.java
+26.com.codefans.task.UserInfoDesensitization.java
+
+==================================================================
+
+1. com.messagesolution.xml.XmlFormater.java
+（1）formatFileString()方法：
+比如文件FindItemRequest.txt内容如下：
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Header>
+    <ExchangeImpersonation xmlns="http://schemas.microsoft.com/exchange/services/2006/types">
+      <ConnectingSID>
+        <PrimarySmtpAddress>taojournal2013@exchange2013.com</PrimarySmtpAddress>
+      </ConnectingSID>
+    </ExchangeImpersonation>
+    <RequestServerVersion xmlns="http://schemas.microsoft.com/exchange/services/2006/types" Version="Exchange2010"></RequestServerVersion>
+  </soap:Header>
+  <soap:Body>
+    <FindItem xmlns="http://schemas.microsoft.com/exchange/services/2006/messages" Traversal="Shallow">
+      <ItemShape>
+        <BaseShape xmlns="http://schemas.microsoft.com/exchange/services/2006/types">IdOnly</BaseShape>
+      </ItemShape>
+      <IndexedPageItemView BasePoint="Beginning" Offset="0" MaxEntriesReturned="100000"/>
+      <Restriction>
+        <And xmlns="http://schemas.microsoft.com/exchange/services/2006/types">
+          <IsGreaterThanOrEqualTo>
+            <FieldURI FieldURI="item:DateTimeReceived"/>
+            <FieldURIOrConstant>
+              <Constant Value="1995-01-01T00:00:00Z"/>
+            </FieldURIOrConstant>
+          </IsGreaterThanOrEqualTo>
+          <IsLessThanOrEqualTo>
+            <FieldURI FieldURI="item:DateTimeReceived"/>
+            <FieldURIOrConstant>
+              <Constant Value="2013-05-21T22:00:00Z"/>
+            </FieldURIOrConstant>
+          </IsLessThanOrEqualTo>
+          <IsNotEqualTo>
+            <FieldURI FieldURI="item:ItemClass"/>
+            <FieldURIOrConstant>
+              <Constant Value="IPM.Note.messagesolution.archivedstubbed"/>
+            </FieldURIOrConstant>
+          </IsNotEqualTo>
+          <IsNotEqualTo>
+            <FieldURI FieldURI="item:ItemClass"/>
+            <FieldURIOrConstant>
+              <Constant Value="IPM.Note.messagesolution.archivedstubbed.attachmentOnly"/>
+            </FieldURIOrConstant>
+          </IsNotEqualTo>
+        </And>
+      </Restriction>
+      <SortOrder>
+        <FieldOrder xmlns="http://schemas.microsoft.com/exchange/services/2006/types" Order="Ascending">
+          <FieldURI FieldURI="item:DateTimeReceived"/>
+        </FieldOrder>
+      </SortOrder>
+      <ParentFolderIds>
+        <FolderId xmlns="http://schemas.microsoft.com/exchange/services/2006/types" Id="AAMkADNjMzg5NWFjLTllZTAtNDI3Ny05YTk0LWE3Nzk3OWNlZWI2NAAuAAAAAABRaqsq5CMKRrGZD2FRZKNTAQC1190uw9N0R7smC/e0yGnwAAAAAAAOAAA=" ChangeKey="AQAAABYAAAC1190uw9N0R7smC/e0yGnwAAA5ru62"></FolderId>
+      </ParentFolderIds>
+    </FindItem>
+  </soap:Body>
+</soap:Envelope>
+
+通过formatFileString()这个方法格式化后：
+sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+sb.append("<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">");
+sb.append("  <soap:Header>");
+sb.append("    <ExchangeImpersonation xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\">");
+sb.append("      <ConnectingSID>");
+sb.append("        <PrimarySmtpAddress>taojournal2013@exchange2013.com</PrimarySmtpAddress>");
+sb.append("      </ConnectingSID>");
+sb.append("    </ExchangeImpersonation>");
+sb.append("    <RequestServerVersion xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\" Version=\"Exchange2010\"></RequestServerVersion>");
+sb.append("  </soap:Header>");
+sb.append("  <soap:Body>");
+sb.append("    <FindItem xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\" Traversal=\"Shallow\">");
+sb.append("      <ItemShape>");
+sb.append("        <BaseShape xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\">IdOnly</BaseShape>");
+sb.append("      </ItemShape>");
+sb.append("      <IndexedPageItemView BasePoint=\"Beginning\" Offset=\"0\" MaxEntriesReturned=\"100000\"/>");
+sb.append("      <Restriction>");
+sb.append("        <And xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\">");
+sb.append("          <IsGreaterThanOrEqualTo>");
+sb.append("            <FieldURI FieldURI=\"item:DateTimeReceived\"/>");
+sb.append("            <FieldURIOrConstant>");
+sb.append("              <Constant Value=\"1995-01-01T00:00:00Z\"/>");
+sb.append("            </FieldURIOrConstant>");
+sb.append("          </IsGreaterThanOrEqualTo>");
+sb.append("          <IsLessThanOrEqualTo>");
+sb.append("            <FieldURI FieldURI=\"item:DateTimeReceived\"/>");
+sb.append("            <FieldURIOrConstant>");
+sb.append("              <Constant Value=\"2013-05-21T22:00:00Z\"/>");
+sb.append("            </FieldURIOrConstant>");
+sb.append("          </IsLessThanOrEqualTo>");
+sb.append("          <IsNotEqualTo>");
+sb.append("            <FieldURI FieldURI=\"item:ItemClass\"/>");
+sb.append("            <FieldURIOrConstant>");
+sb.append("              <Constant Value=\"IPM.Note.messagesolution.archivedstubbed\"/>");
+sb.append("            </FieldURIOrConstant>");
+sb.append("          </IsNotEqualTo>");
+sb.append("          <IsNotEqualTo>");
+sb.append("            <FieldURI FieldURI=\"item:ItemClass\"/>");
+sb.append("            <FieldURIOrConstant>");
+sb.append("              <Constant Value=\"IPM.Note.messagesolution.archivedstubbed.attachmentOnly\"/>");
+sb.append("            </FieldURIOrConstant>");
+sb.append("          </IsNotEqualTo>");
+sb.append("        </And>");
+sb.append("      </Restriction>");
+sb.append("      <SortOrder>");
+sb.append("        <FieldOrder xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\" Order=\"Ascending\">");
+sb.append("          <FieldURI FieldURI=\"item:DateTimeReceived\"/>");
+sb.append("        </FieldOrder>");
+sb.append("      </SortOrder>");
+sb.append("      <ParentFolderIds>");
+sb.append("        <FolderId xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\" Id=\"AAMkADNjMzg5NWFjLTllZTAtNDI3Ny05YTk0LWE3Nzk3OWNlZWI2NAAuAAAAAABRaqsq5CMKRrGZD2FRZKNTAQC1190uw9N0R7smC/e0yGnwAAAAAAAOAAA=\" ChangeKey=\"AQAAABYAAAC1190uw9N0R7smC/e0yGnwAAA5ru62\"></FolderId>");
+sb.append("      </ParentFolderIds>");
+sb.append("    </FindItem>");
+sb.append("  </soap:Body>");
+sb.append("</soap:Envelope>");
+
+
+2. com.messagesolution.util.fileutil.ChangePackageDeclare.java
+作用：改变某个包下所有类的package定义
+
+不足：
+(1)import中的包未改变
+(2)最后的换行符\n和制表符\r问题(不是多了就是少了,导致和源文件的hashcode不一致)
+
+3. com.messagesolution.util.fileutil.SvnUtil
+作用：删除工程目录下的.svn目录
+
+4. com.messagesolution.util.fileutil.LogUtil
+作用：日志分析工具
+(1)String xml = "<m:FindFolderResponse xmlns:m=\"http://schemas.microsoft.com/exchange/services/2006/messages\" xmlns:t=\"http://schemas.microsoft.com/exchange/services/2006/types\"><m:ResponseMessages><m:FindFolderResponseMessage ResponseClass=\"Error\"><m:MessageText>SMTP 地址没有与其关联的邮箱。</m:MessageText><m:ResponseCode>ErrorNonExistentMailbox</m:ResponseCode><m:DescriptiveLinkKey>0</m:DescriptiveLinkKey><m:MessageXml><t:Value Name=\"SmtpAddress\">rongwang.sun@cimc.com</t:Value></m:MessageXml></m:FindFolderResponseMessage></m:ResponseMessages></m:FindFolderResponse>";
+当ResponseCode为ErrorNonExistentMailbox时，收集并统计<t:Value Name=\"SmtpAddress\">rongwang.sun@cimc.com</t:Value> 中的smtp地址
+
+5. com.messagesolution.util.XmlUtil.java
+
+6. com.messagesolution.util.fileutil.ClassFileTool.java
+function:copy classes to a directory according to svn submit logs
+（1）
+将svn中需要提交的java文件的文件路径拷贝到
+com/messagesolution/util/classes.txt
+文件中,
+（2）
+然后修改ClassFileTool.copy()方法中的classSourcePath， dest
+classSourcePath是class的源路径
+dest是class要复制到的目标路径
+（3）
+classSourcePrefix是svn提交时类的前缀，如
+src/main/java/com/messagesolution/store/StoreEmail.java
+的前缀就是src/main/java/，把他赋值给classSourcePrefix
+
+7. com.messagesolution.util.fileutil.scannerdisk.DiskFileScanner
+function:scan disk files by type as fast as possible.
+
+8. com.messagesolution.java.lang.osname.OSinfo.java
+function:get os.name from system property.
+
+9. com.messagesolution.util.fileutil.PackageMerge.java
+function:merge different packages to the same package.
+
+10. com.messagesolution.java.io.test.JavaByteAndFileByteTest
+function:store byte by byte
+
+11. com.messagesolution.java.util.HashCodeUtil.java
+function: compute the md5 or sha hash code for a certain string or a certain stream
+
+12. com.messagesolution.task.HashCodeTool.java
+function: 1. compute files md5 or sha, and write them to a file which named "hashcodes_before_upload.txt".
+          2. valid files by a file which named "hashcodes_before_upload.txt".
+找出一推文件中是否有hashcode相同的文件
+
+13. com.messagesolution.java.db.ormapping.ORMapping.java
+function: 1. reflect方法：根据对象的成员变量，到数据库中取值，然后给成员变量赋值，这样就完成了数据库记录到对象的转换。
+             前提是对象的成员变量的名字必须和数据库字段的名字一样。（如果是mysql，可以忽略大小写）
+             目前只能给java的8种基础类型赋值。对象中其他类型的成员变量无法完成赋值。
+
+
+14. com.messagesolution.qr
+function: add qr(Quick Response) support.( qrcode and zxing)
+qrcode:
+com.messagesolution.qr.qrcode.ex02.QRCodeDecoderTest
+com.messagesolution.qr.qrcode.ex02.QRCodeEncoderTest
+
+zxing:
+com.messagesolution.qr.zxing.ex01.ZxingEncoder
+com.messagesolution.qr.zxing.ex01.ZxingDecoder
+
+
+15. com.messagesolution.task.IPOccupationMonitor.java
+function: set ip address by java code
+
+16. com\messagesolution\performance\findstr\introduction.txt
+function:
+	测试在本地应用中查找字符串的速度。
+	提供两种方式，一种是将所有字符串写入到一个文件中，另一种是将字符串写入到不同目录下的不同文件中(/fa/76/fa_76.hashcode)，
+然后分别测试这两种方式的查找速度。
+
+17.com.codefans.java.io.write.OutputAndBufferdOutput.java
+function:测试OutputStream和BufferedOutputStream的性能
+
+18.com.codefans.java.io.performance.WriteToFileCache.java
+function:文件缓存研究(messagesolution时的Q),频繁的新建和删除文件, IO开销很大, 效率不高, 新建一个稍微大点的文件, 然后重复读写这一文件, 可以减少操作系统为新建的文件分配空间的时间和效率
+
+19.com.messagesolution2.util.RandomAccessFileTest.test03()
+解决问题: 文件逐行复制拷贝文件时, 文件最末尾的换行符和制表符问题
+
+20.com.messagesolution2.task.httpproxy.ProxyApp.java
+通过java的socket模拟http请求与http响应, 来实现代理功能。
+
+21. com.messagesolution2.util.Base64FileDecoderUtil.java
+将文件保存为base64字符串以及将base64字符串解析成文件
+
+22. com.codefans.java.io.eea.Persistent.java
+function:通过位移来存储数据(比如将整数的四个字节分别保存写入,读取时再将四个字节合并成一个整数)
+
+23.com.codefans.util.FileUtil.java
+function:文件工具类
+(1)方法compareFile(String sourceFilePath, String destFilePath)说明：
+功能:求两个文件的差集、交集、并集,文件每行一条记录
+
+将平时写的代码归纳整理成说明记录到introduction.txt文件中
+
+24.com.codefans.java.regex.RegexForString.java
+function:正则表达式字符串处理工具类
+(1)方法replaceSpecialChar(String regex, String str,String[] arr)说明:
+功能：用数组arr的元素依次替换str字符串中匹配到的子串
+
+25.com.codefans.java.file.GetFileSize.java
+function:获取某个文件夹及子文件夹的大小(统计几个层级可以设置参数配置)
+
+26.com.codefans.task.UserInfoDesensitization.java
+function:过滤用户敏感信息,包括电话号码,邮箱地址等
+
+
+
+
+
+
+
+
+

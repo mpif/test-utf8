@@ -1,0 +1,104 @@
+
+csdn.kongxx包下的例子全都来自于csdn上kongxx这个用户的博客：
+
+专栏<<Java Socket实战>>
+专栏地址：http://blog.csdn.net/column/details/javasocketinaction.html
+专栏目录：
+1.Java Socket实战之一 单线程通信
+2.Java Socket实战之二 多线程通信
+3.Java Socket实战之三 传输对象
+4.Java Socket实战之四 传输压缩对象
+5.Java Socket实战之五 使用加密协议传输对象
+6.Java Socket实战之六 使用NIO包实现Socket通信
+7.Java Socket实战之七 使用Socket通信传输文件
+8.Java Socket实战之八
+
+
+1.ex01包:
+Java Socket实战之一 单线程通信
+http://blog.csdn.net/kongxx/article/details/7259436
+
+2.ex02包:
+Java Socket实战之二 多线程通信
+http://blog.csdn.net/kongxx/article/details/7259465
+
+3.ex03包:
+Java Socket实战之三 传输对象
+http://blog.csdn.net/kongxx/article/details/7259827
+
+4.ex04包:
+Java Socket实战之四 传输压缩对象
+http://blog.csdn.net/kongxx/article/details/7259834
+
+5.ex05包:
+Java Socket实战之五 使用加密协议传输对象
+http://blog.csdn.net/kongxx/article/details/7259837
+
+代码写完了，下面就需要产生keystore文件了，运行下面的命令
+keytool -genkey -alias mysocketkeystore -keyalg RSA -keystore mysocketkeystore.jks  
+在提示输入项中，密码项自己给定，其它都不改直接回车，这里我使用的密码是“mysocketpasswordusersa”。
+
+运行Server
+java -Djavax.net.ssl.keyStore=mysocketkeystore.jks -Djavax.net.ssl.keyStorePassword=mysocketpasswordusersa com.googlecode.garbagecan.test.socket.ssl.MyServer
+或者在eclipse中加入：
+-Djavax.net.ssl.keyStore=D:\git\test-utf8\src\com\messagesolution\java\socket\csdn\kongxx\ex05\mysocketkeystore.jks -Djavax.net.ssl.keyStorePassword=mysocketpasswordusersa
+其中D:\git\test-utf8\src\com\messagesolution\java\socket\csdn\kongxx\ex05\mysocketkeystore.jks是mysocketkeystore.jks存放路径。
+
+运行Client
+java -Djavax.net.ssl.trustStore=mysocketkeystore.jks -Djavax.net.ssl.trustStorePassword=mysocketpasswordusersa com.googlecode.garbagecan.test.socket.ssl.MyClient 
+或者在eclipse中加入：
+-Djavax.net.ssl.trustStore=D:\git\test-utf8\src\com\messagesolution\java\socket\csdn\kongxx\ex05\mysocketkeystore.jks -Djavax.net.ssl.trustStorePassword=mysocketpasswordusersa
+其中D:\git\test-utf8\src\com\messagesolution\java\socket\csdn\kongxx\ex05\mysocketkeystore.jks是mysocketkeystore.jks存放路径。
+
+6.ex06包:
+Java Socket实战之六 使用NIO包实现Socket通信
+http://blog.csdn.net/kongxx/article/details/7288896
+
+关于NIO和IO的比较，下面的两篇文章对理解很有帮助，可以参考一下。
+http://tutorials.jenkov.com/java-nio/nio-vs-io.html
+https://blogs.oracle.com/slc/entry/javanio_vs_javaio
+
+7.ex07包：
+Java Socket实战之七 使用Socket通信传输文件
+http://blog.csdn.net/kongxx/article/details/7319410
+
+8.ex08包：
+Java Socket实战之八
+http://blog.csdn.net/kongxx/article/details/8293469
+简单的Socket通信协议的实现
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

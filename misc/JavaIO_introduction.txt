@@ -1,0 +1,8 @@
+1. com.messagesolution.java.io.eea.ResettableFileInputStream.java
+Function:
+	contruct a resetable inputstream
+Usage:
+	mark(0);
+	...read stream...
+	reset();
+	...read stream again...
